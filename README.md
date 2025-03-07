@@ -33,4 +33,7 @@ if you want test that and use it in your best interest have installed grim,slurp
 3) sudo make install/uninstall(if want uninstall)
 ```
 
+# About sources
+you can use precompiled binary package or compile with make if you want the new version as fast as possible
+but if you want stable version in your best interest use **git pull** and install precompiled binary package placed
 by the way issues opened to reports and suggestions
