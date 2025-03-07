@@ -54,7 +54,7 @@ fi
 # Validate second argument
 if [[ "$WLRCOPY" == "wlrclipboard=1" ]]; then
     copy_to_clipboard
-    echo "Screenshot copied to clipboard."
+    echo "Screenshot saved and copied to clipboard as $FILE_NAME."
 elif [[ "$WLRCOPY" == "wlrclipboard=0" ]]; then
     echo "Screenshot saved as $FILE_NAME."
 else
