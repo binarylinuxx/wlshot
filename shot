@@ -1,0 +1,64 @@
+#!/bin/bash
+
+# Function to display help message
+show_help() {
+    echo "Usage: shot [screen|region] wlrclipboard=[1|0]"
+    echo ""
+    echo "Arguments:"
+    echo "  screen        Capture the entire screen"
+    echo "  region        Capture a selected region"
+    echo "  wlrclipboard=1  Copy the screenshot to the clipboard"
+    echo "  wlrclipboard=0  Save the screenshot as a file (shot-YYYY-MM-DD-HH-MM-SS.png)"
+    echo ""
+    echo "Examples:"
+    echo "  shot screen wlrclipboard=0   # Take full-screen screenshot and save it"
+    echo "  shot region wlrclipboard=1   # Take a region screenshot and copy to clipboard"
+}
+
+# Parse arguments
+if [[ "$1" == "--help" || "$1" == "-h" ]]; then
+    show_help
+    exit 0
+fi
+
+SCREEN_OR_REGION=$1
+WLRCOPY=$2
+FILE_NAME="shot-$(date +%Y-%m-%d-%H-%M-%S).png"
+
+# Function to take a full-screen screenshot
+take_screen_shot() {
+    grim "$FILE_NAME"
+}
+
+# Function to take a region screenshot
+take_region_shot() {
+    grim -g "$(slurp)" "$FILE_NAME"
+}
+
+# Function to copy the screenshot to the clipboard
+copy_to_clipboard() {
+    wl-copy < "$FILE_NAME"
+}
+
+# Validate first argument
+if [[ "$SCREEN_OR_REGION" == "screen" ]]; then
+    take_screen_shot
+elif [[ "$SCREEN_OR_REGION" == "region" ]]; then
+    take_region_shot
+else
+    echo "Invalid first argument. Use 'screen' or 'region'."
+    show_help
+    exit 1
+fi
+
+# Validate second argument
+if [[ "$WLRCOPY" == "wlrclipboard=1" ]]; then
+    copy_to_clipboard
+    echo "Screenshot copied to clipboard."
+elif [[ "$WLRCOPY" == "wlrclipboard=0" ]]; then
+    echo "Screenshot saved as $FILE_NAME."
+else
+    echo "Invalid second argument. Use 'wlrclipboard=1' or 'wlrclipboard=0'."
+    show_help
+    exit 1
+fi
