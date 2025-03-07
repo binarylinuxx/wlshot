@@ -4,7 +4,8 @@ Simple screenshot utility for every possible wlr window manager or Desktop envir
 
 # Desc
 im tired of using and combine grim and slurp and created own script 
-that allow you use one simple command
+that allow you use one simple command the utility statement currently in PRE-PRE-PRE-PRE ALPHA
+if you test it all o your own!
 ------------------------------------------------------------------------------------------
 
 #Example options and usage
