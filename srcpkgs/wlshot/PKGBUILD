@@ -1,0 +1,22 @@
+pkgname=wlshot
+pkgver=wlshot.v0.0.2.pre.pre.pre.pre.alpha.r1.ge890612
+pkgrel=1
+pkgdesc="Simple screenshot utility"
+arch=('x86_64')
+url="https://github.com/binarylinuxx/wlshot"
+license=('MIT')
+depends=('grim' 'slurp' 'wl-clipboard')
+makedepends=('git')
+source=("git+https://github.com/binarylinuxx/wlshot.git")
+sha256sums=('SKIP')
+maintainer="IwnuplyNotTyan <ikissiwnuply@gmail.com>"
+
+pkgver() {
+  cd "$srcdir/$pkgname"
+  git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
+}
+
+package() {
+  cd "$srcdir/$pkgname"
+  install -Dm755 shot "$pkgdir/usr/bin/shot"
+}
