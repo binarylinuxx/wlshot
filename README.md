@@ -9,7 +9,7 @@ WARNING: the utility statement currently in PRE-PRE-PRE-PRE ALPHA
 if you test it all on your own risk and fear! author warned you and doesnt take any responsibility
 ------------------------------------------------------------------------------------------
 
-#Example options and usage
+##Example options and usage
 ```
 shot [screen/region] [wlrclipboard=1/0]  
 ```
@@ -38,3 +38,7 @@ you can use precompiled binary package or compile with make if you want the new 
 but if you want stable version in your best interest Download latest xbps pkg from github releases and install precompiled binary package placed
 by **sudo xbps-install -R ~/Downloads/ wlshot **(work only for void and xbps based distributions) by the way issues opened to reports and suggestions
 don't feel shy if have problem or suggestion
+
+# maintainers
+void linux package - https://github.com/binarylinuxx
+arch linux package - https://github.com/IwnuplyNotTyan
