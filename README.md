@@ -35,6 +35,6 @@ if you want test that and use it in your best interest have installed grim,slurp
 
 # About sources
 you can use precompiled binary package or compile with make if you want the new version as fast as possible
-but if you want stable version in your best interest use **git pull** and install precompiled binary package placed
-by **sudo xbps-install -R hostdir/binpkgs wlshot** by the way issues opened to reports and suggestions
+but if you want stable version in your best interest Download latest xbps pkg from github releases and install precompiled binary package placed
+by **sudo xbps-install -R ~/Downloads/ wlshot **(work only for void and xbps based distributions) by the way issues opened to reports and suggestions
 don't feel shy if have problem or suggestion
