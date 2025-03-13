@@ -40,5 +40,6 @@ by **sudo xbps-install -R ~/Downloads/ wlshot **(work only for void and xbps bas
 don't feel shy if have problem or suggestion
 
 # maintainers
-void linux package - https://github.com/binarylinuxx
-arch linux package - https://github.com/IwnuplyNotTyan
+[void linux package myself](https://github.com/binarylinuxx)
+
+arch linux package [Iwnuply](https://github.com/IwnuplyNotTyan)
