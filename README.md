@@ -11,8 +11,9 @@ if you test it all on your own risk and fear! author warned you and doesnt take 
 
 
 ##Example options and usage
+first time its might look not easy to usage but veeery simple
 ```
-shot [screen/region] [wlrclipboard=1/0]  
+shot [screen|region] wlrclipboard=[1|0]  
 ```
 
 if you chose screen its capture screen output if region its capture selected space on 
