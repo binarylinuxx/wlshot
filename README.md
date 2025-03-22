@@ -6,11 +6,13 @@ Simple screenshot utility for every possible wlr window manager or Desktop envir
 --------
 im tired of using and combine grim and slurp and created own script 
 that allow you use one simple command.
-WARNING: the utility statement currently in PRE-PRE-PRE-PRE ALPHA
-if you test it all on your own risk and fear! author warned you and doesnt take any responsibility
+> ⚠ **WARNING:** This utility is currently in **pre-alpha**.  
+> Use it at your own risk! The author takes no responsibility for any issues or damage caused.
+
+--------
 
 
-##Example options and usage
+##Example options and usage:
 ------------------------------------------------------------------------------------------
 first time its might look not easy to usage but veeery simple
 
