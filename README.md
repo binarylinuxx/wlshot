@@ -2,12 +2,13 @@
 Simple screenshot utility for every possible wlr window manager or Desktop environment
 ------------------------------------------------------------------------------------------
 
-# Desc
+## Desc
+--------
 im tired of using and combine grim and slurp and created own script 
 that allow you use one simple command.
 WARNING: the utility statement currently in PRE-PRE-PRE-PRE ALPHA
 if you test it all on your own risk and fear! author warned you and doesnt take any responsibility
-------------------------------------------------------------------------------------------
+
 
 ##Example options and usage
 ```
