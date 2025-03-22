@@ -9,10 +9,10 @@ that allow you use one simple command.
 > ⚠ **WARNING:** This utility is currently in **pre-alpha**.  
 > Use it at your own risk! The author takes no responsibility for any issues or damage caused.
 
---------
 
 
-##Example options and usage:
+
+## Example options and usage:
 ------------------------------------------------------------------------------------------
 first time its might look not easy to usage but veeery simple
 
