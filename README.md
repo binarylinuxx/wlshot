@@ -11,7 +11,9 @@ if you test it all on your own risk and fear! author warned you and doesnt take 
 
 
 ##Example options and usage
+------------------------------------------------------------------------------------------
 first time its might look not easy to usage but veeery simple
+
 ```
 shot [screen|region] wlrclipboard=[1|0]  
 ```
