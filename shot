@@ -55,8 +55,10 @@ fi
 if [[ "$WLRCOPY" == "wlrclipboard=1" ]]; then
     copy_to_clipboard
     echo "Screenshot saved and copied to clipboard as $FILE_NAME."
+    notify-send "image saved as $FILE_NAME and copied."
 elif [[ "$WLRCOPY" == "wlrclipboard=0" ]]; then
     echo "Screenshot saved as $FILE_NAME."
+    notify-send "image saved as $FILE_NAME not in clipboard."
 else
     echo "Invalid second argument. Use 'wlrclipboard=1' or 'wlrclipboard=0'."
     show_help
