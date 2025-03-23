@@ -1,5 +1,5 @@
 pkgname=wlshot
-pkgver=wlshot.v0.0.2.pre.pre.pre.pre.alpha.r1.ge890612
+pkgver=wlshot.v0.0.5fr.alpha.r7.g0d656a4
 pkgrel=1
 pkgdesc="Simple screenshot utility"
 arch=('x86_64')
