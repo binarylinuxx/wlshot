@@ -45,54 +45,7 @@ You can install wlshot using the provided flake:
 
 ### Temporary Use
 ```
-nix build github:binarylinuxx/wlshot#default
-```
-
-### System-wide Installation (NixOS)
-Add to your system configuration:
-
-```nix
-{
-  inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    wlshot.url = "github:binarylinuxx/wlshot";
-  };
-
-  outputs = { self, nixpkgs, wlshot, ... }: {
-    nixosConfigurations.yourhostname = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        {
-          environment.systemPackages = [ wlshot.packages.x86_64-linux.default ];
-        }
-      ];
-    };
-  };
-}
-```
-
-### Home Manager Installation
-Add to your Home Manager configuration:
-
-```nix
-{
-  inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    wlshot.url = "github:binarylinuxx/wlshot";
-    home-manager.url = "github:nix-community/home-manager";
-  };
-  
-  outputs = { self, nixpkgs, wlshot, home-manager, ... }: {
-    homeConfigurations.yourusername = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.x86_64-linux;
-      modules = [
-        {
-          home.packages = [ wlshot.packages.x86_64-linux.default ];
-        }
-      ];
-    };
-  };
-}
+nix build 
 ```
 
 ## Package Managers
