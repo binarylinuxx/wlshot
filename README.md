@@ -1,51 +1,116 @@
 # wlshot
 Simple screenshot utility for every possible wlr window manager or Desktop environment
 ------------------------------------------------------------------------------------------
-
 ## Desc
 --------
-im tired of using and combine grim and slurp and created own script 
-that allow you use one simple command.
-> ⚠ **WARNING:** This utility is currently in **PRE-PRE-PRE-PRE-ALPHA**.  
-> Use it at your own risk! The author takes no responsibility for any issues or damage caused.
-
-
-
+I'm tired of using and combining grim and slurp, so I created my own script
+that allows you to use one simple command.
+> ⚠ **WARNING:** This utility is currently in **PRE-PRE-PRE-PRE-ALPHA**.
+> Use it at your own risk and fear! The author takes no responsibility for any issues or damage caused.
 
 ## Example options and usage:
 ------------------------------------------------------------------------------------------
-first time its might look not easy to usage but veeery simple
-
+First time it might look not easy to use but it's veeery simple:
 ```
-shot [screen|region] wlrclipboard=[1|0]  
+wlshot [screen|region] wlrclipboard=[1|0]
 ```
+If you choose screen it captures the screen output if region it captures a selected space on
+screen. About wlrclipboard: if you set that as 0 value it saves the screenshot as .png file;
+if you set value as 1 it autocopies to clipboard.
 
-if you chose screen its capture screen output if region its capture selected space on 
-screen, about wlrclipboard if you set that as 0 value its save the screenshot as .png file
-if you set value as 1 autocopy to clipboard 
+You can use:
+```
+-h or --help
+```
+as flag to get help message.
 
-you can use: 
-``` 
---help
-``` 
-as flag to get help message
+# Installation Options
 
-# Install
-if you want test that and use it in your best interest have installed grim,slurp,wl-clipboard
+## Prerequisites
+If you want compile from SRC in your best interest have installed:
+- grim # To make screenshot
+- slurp # Choice selected space on screen
+- wl-clipboard # Copy to clipboard
 
+## Traditional Install
 ```
 1) git clone https://github.com/binarylinuxx/wlshot.git
 2) cd wlshot/
-3) sudo make install/uninstall(if want uninstall)
+3) sudo make install
+```
+To uninstall: `sudo make uninstall`
+
+## Nix/NixOS Install
+You can install wlshot using the provided flake:
+
+### Temporary Use
+```
+nix run github:binarylinuxx/wlshot
 ```
 
-# About sources
-you can use precompiled binary package or compile with make if you want the new version as fast as possible
-but if you want stable version in your best interest Download latest xbps pkg from github releases and install precompiled binary package placed
-by **sudo xbps-install -R ~/Downloads/ wlshot **(work only for void and xbps based distributions) by the way issues opened to reports and suggestions
-don't feel shy if have problem or suggestion
+### System-wide Installation (NixOS)
+Add to your system configuration:
 
-# maintainers
-[void linux package myself](https://github.com/binarylinuxx)
+```nix
+{
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    wlshot.url = "github:binarylinuxx/wlshot";
+  };
 
-arch linux package [Iwnuply](https://github.com/IwnuplyNotTyan)
+  outputs = { self, nixpkgs, wlshot, ... }: {
+    nixosConfigurations.yourhostname = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        {
+          environment.systemPackages = [ wlshot.packages.x86_64-linux.default ];
+        }
+      ];
+    };
+  };
+}
+```
+
+### Home Manager Installation
+Add to your Home Manager configuration:
+
+```nix
+{
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    wlshot.url = "github:binarylinuxx/wlshot";
+    home-manager.url = "github:nix-community/home-manager";
+  };
+  
+  outputs = { self, nixpkgs, wlshot, home-manager, ... }: {
+    homeConfigurations.yourusername = home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      modules = [
+        {
+          home.packages = [ wlshot.packages.x86_64-linux.default ];
+        }
+      ];
+    };
+  };
+}
+```
+
+## Package Managers
+- Void Linux: Available in the void-packages repository or install from releases:
+  ```
+  sudo xbps-install -R ~/Downloads/ wlshot
+  ```
+  (Works only for Void and xbps-based distributions)
+
+- Arch Linux: Maintained by [Iwnuply](https://github.com/IwnuplyNotTyan)
+
+# About Sources
+You can use precompiled binary packages or compile with make if you want the new version as fast as possible.
+For stable versions, download the latest xbps package from GitHub releases.
+
+Issues are open for reports and suggestions. Don't feel shy if you have a problem or suggestion!
+
+# Maintainers
+- Void Linux Package: [binarylinuxx](https://github.com/binarylinuxx)
+- Arch Linux package: [Iwnuply](https://github.com/IwnuplyNotTyan)
+- Nix Flake: [binarylinuxx](https://github.com/binarylinuxx)
