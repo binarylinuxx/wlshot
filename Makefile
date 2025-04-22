@@ -1,5 +1,5 @@
 # Define variables
-SCRIPT_NAME = shot
+SCRIPT_NAME = wlshot
 INSTALL_DIR = /usr/bin
 SCRIPT_SRC = ./$(SCRIPT_NAME)
 
