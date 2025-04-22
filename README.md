@@ -45,7 +45,7 @@ You can install wlshot using the provided flake:
 
 ### Temporary Use
 ```
-nix run github:binarylinuxx/wlshot
+nix build github:binarylinuxx/wlshot#default
 ```
 
 ### System-wide Installation (NixOS)
