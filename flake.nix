@@ -1,37 +1,53 @@
 {
-  description = "Simple Wayland screenshot utility";
+  description = "wlshot - A simple screenshot tool for Wayland";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
   };
-  outputs = { self, nixpkgs, flake-utils, ... }:
+  outputs = { self, nixpkgs, flake-utils }:
     flake-utils.lib.eachDefaultSystem (system:
       let
-        pkgs = nixpkgs.legacyPackages.${system};
-        scriptContent = builtins.readFile ./shot;
-      in {
-        packages = {
-          default = pkgs.writeShellApplication {
-            name = "wlshot";
-            text = scriptContent;
-            runtimeInputs = [
-              pkgs.grim
-              pkgs.slurp
-              pkgs.wl-clipboard
-            ];
+        pkgs = import nixpkgs { inherit system; };
+      in
+      {
+        packages.default = pkgs.stdenv.mkDerivation {
+          name = "wlshot";
+          version = "0.0.5";
+          
+          src = ./.;
+          
+          buildPhase = ''
+            chmod +x ./wlshot
+          '';
+          
+          installPhase = ''
+            mkdir -p $out/bin
+            cp ./wlshot $out/bin/shot
+          '';
+          
+          buildInputs = with pkgs; [
+            bash
+          ];
+
+	  runtimeInputs = with pkgs; [
+	    bash
+	    grim
+	    slurp
+	    wl-clipboard
+	  ];
+          
+          meta = with pkgs.lib; {
+            description = "wlshot";
+            homepage = "https://github.com/binarylinuxx/wlshot/";
+            license = licenses.mit;
+            maintainers = [ "iwnuply <ikissiwnuply@gmail.com>" ];
+            platforms = platforms.all;
           };
         };
-        apps.default = {
-          type = "app";
-          program = "${self.packages.${system}.default}/bin/wlshot";
+        apps.default = flake-utils.lib.mkApp {
+          drv = self.packages.${system}.default;
+          name = "shot";
         };
-        devShells.default = pkgs.mkShell {
-          packages = [
-            pkgs.grim
-            pkgs.slurp
-            pkgs.wl-clipboard
-            pkgs.shellcheck
-          ];
-        };
-      });
+      }
+    );
 }
